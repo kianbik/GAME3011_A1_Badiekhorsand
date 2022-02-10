@@ -24,7 +24,7 @@ public class TileScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     void Start()
     {
         tileImage = gameObject.GetComponent<Image>();
-        tileImage.color = Color.magenta;
+        tileImage.color = Color.grey;
     }
     void Update()
     {if(Revealed)
@@ -58,7 +58,7 @@ public class TileScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!Revealed)
-            tileImage.color = Color.magenta;
+            tileImage.color = Color.grey;
 
     }
     public void SetColor()
