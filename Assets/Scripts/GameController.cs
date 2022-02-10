@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
         scoreText.text = "SCORE: " + score.ToString();
         scanRemainingText.text = "SCANS REMAINING: " + scanRemaining.ToString();
         extractRemainingText.text = "EXTRACTS REMAINING: " + extractremaining.ToString();
-
+        
     }
     public void ShowMessage(string messageToDisplay)
     {
@@ -50,4 +50,5 @@ public class GameController : MonoBehaviour
         extractremaining--;
        //messageText.text = "Tile Extracted";
     }
+ 
 }

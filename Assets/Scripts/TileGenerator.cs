@@ -8,7 +8,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject[,] gridArray;
     public int maxValue;
     public GameObject tilePrefab;
-
+   public GameController gameController;
      void Start()
     {
         gameObject.GetComponent<GridLayoutGroup>().cellSize = new Vector2((500 / rows), (500 / columns));
@@ -83,8 +83,8 @@ public class TileGenerator : MonoBehaviour
         void AddValueToOres()
         {
 
-            int randomRow = Random.Range(0, rows /2);
-            int randomColumn = Random.Range(0, columns/2);
+            int randomRow = Random.Range(0, rows - 1);
+            int randomColumn = Random.Range(0, columns - 1);
             TileScript tileCreated = gridArray[randomRow, randomColumn].GetComponent<TileScript>();
             if (tileCreated.oreValue == 0)
                tileCreated.oreValue = maxValue;
@@ -150,8 +150,8 @@ public class TileGenerator : MonoBehaviour
 
             }
         }
-        
-           // GameController.messageText.text = "Oops, No Scan Remaining :(";
+        else
+           gameController.ShowMessage ("Oops, No Scan Remaining :(");
 
     }
     public void Extract(int x, int y)
@@ -175,7 +175,9 @@ public class TileGenerator : MonoBehaviour
 
             }
         }
-      
+        else
+        gameController.ShowMessage("Oops, No Extraction Remaining :(");
+
 
     }
 
