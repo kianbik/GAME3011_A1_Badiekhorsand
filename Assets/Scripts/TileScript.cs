@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TileScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
    
-    public int oreValue;
+    public int oreValue=0;
     public Image tileImage;
 
     public bool Revealed;

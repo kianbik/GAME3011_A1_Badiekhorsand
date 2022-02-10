@@ -64,15 +64,15 @@ public class TileGenerator : MonoBehaviour
                 tileToAssing.belowTile = gridArray[tileToAssing.row + 1, tileToAssing.column];
 
 
-            RandomizeOres();
 
         }
+            RandomizeOres();
     }
 
     public void RandomizeOres()
     {
 
-        int NumberOfMaxResourceTiles = Random.Range(1, 2);
+        int NumberOfMaxResourceTiles = Random.Range(1, 4);
         for (int i = 0; i < NumberOfMaxResourceTiles; i++)
         {
 
@@ -80,54 +80,54 @@ public class TileGenerator : MonoBehaviour
         }
 
 
-        void AddValueToOres()
+
+    }
+    public void AddValueToOres()
+    {
+
+        int randomRow = Random.Range(0, rows - 1);
+        int randomColumn = Random.Range(0, columns - 1);
+        TileScript tileCreated = gridArray[randomRow, randomColumn].GetComponent<TileScript>();
+        if (tileCreated.oreValue == 0)
+            tileCreated.oreValue = maxValue;
+        for (int rowsCreated = 0; rowsCreated < rows; rowsCreated++)
         {
-
-            int randomRow = Random.Range(0, rows - 1);
-            int randomColumn = Random.Range(0, columns - 1);
-            TileScript tileCreated = gridArray[randomRow, randomColumn].GetComponent<TileScript>();
-            if (tileCreated.oreValue == 0)
-               tileCreated.oreValue = maxValue;
-            for(int rowsCreated =0; rowsCreated < rows; rowsCreated++)
+            for (int columnsCreated = 0; columnsCreated < columns; columnsCreated++)
             {
-                for(int columnsCreated =0; columnsCreated < columns; columnsCreated++)
+                if (rowsCreated >= randomRow - 1 && rowsCreated <= randomRow + 1)
                 {
-                    if(rowsCreated >= randomRow -1 && rowsCreated <= randomRow + 1)
+                    if (columnsCreated >= randomColumn - 1 && columnsCreated <= randomColumn + 1)
                     {
-                        if(columnsCreated >= randomColumn -1 && columnsCreated <= randomColumn + 1)
-                        {
 
 
-                            TileScript tileChecker = gridArray[rowsCreated, columnsCreated].GetComponent<TileScript>();
-                            if (tileChecker.oreValue < (maxValue / 2))
-                                tileChecker.oreValue = (maxValue / 2);
+                        TileScript tileChecker = gridArray[rowsCreated, columnsCreated].GetComponent<TileScript>();
+                        if (tileChecker.oreValue < (maxValue / 2))
+                            tileChecker.oreValue = (maxValue / 2);
 
 
-                        }
-                    }
-                }        
-            }
-            for (int rowsCreated = 0; rowsCreated < rows; rowsCreated++)
-            {
-                for (int columnsCreated = 0; columnsCreated < columns; columnsCreated++)
-                {
-                    if (rowsCreated >= randomRow - 2 && rowsCreated <= randomRow + 2)
-                    {
-                        if (columnsCreated >= randomColumn -2 && columnsCreated <= randomColumn + 2)
-                        {
-
-
-                            TileScript tileChecker = gridArray[rowsCreated, columnsCreated].GetComponent<TileScript>();
-                            if (tileChecker.oreValue < (maxValue / 4))
-                                tileChecker.oreValue = (maxValue / 4);
-
-
-                        }
                     }
                 }
             }
         }
+        for (int rowsCreated = 0; rowsCreated < rows; rowsCreated++)
+        {
+            for (int columnsCreated = 0; columnsCreated < columns; columnsCreated++)
+            {
+                if (rowsCreated >= randomRow - 2 && rowsCreated <= randomRow + 2)
+                {
+                    if (columnsCreated >= randomColumn - 2 && columnsCreated <= randomColumn + 2)
+                    {
 
+
+                        TileScript tileChecker = gridArray[rowsCreated, columnsCreated].GetComponent<TileScript>();
+                        if (tileChecker.oreValue < (maxValue / 4))
+                            tileChecker.oreValue = (maxValue / 4);
+
+
+                    }
+                }
+            }
+        }
     }
     public void Scan(int x , int y)
     {
