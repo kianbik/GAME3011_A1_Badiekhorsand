@@ -14,7 +14,7 @@ public class TileScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     public int row;
     public int column;
     public TileGenerator tileGenerator;
-
+   
     // Not used for current implementation, but remaining in for potential further functionality! 
     public GameObject aboveTile;
     public GameObject leftTile;
@@ -27,8 +27,13 @@ public class TileScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
         tileImage.color = Color.magenta;
     }
     void Update()
-    {//if(Revealed)
+    {if(Revealed)
         SetColor();
+
+        if (GameController.extractremaining ==0)
+        {
+            Revealed = true;
+        }
     }
     public void OnPointerClick(PointerEventData eventData)
     {

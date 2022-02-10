@@ -144,6 +144,7 @@ public class TileGenerator : MonoBehaviour
                         {
                             TileScript tileScanned = gridArray[rowsCreated, columnsCreated].GetComponent<TileScript>();
                             tileScanned.SetColor();
+                            gameController.ShowMessage("Scanned");
                         }
                     }
                 }
@@ -159,6 +160,7 @@ public class TileGenerator : MonoBehaviour
         if (GameController.extractremaining > 0)
         {
             GameController.extractremaining--;
+           
             for (int rowsCreated = 0; rowsCreated < rows; rowsCreated++)
             {
                 for (int columnsCreated = 0; columnsCreated < columns; columnsCreated++)
@@ -169,8 +171,10 @@ public class TileGenerator : MonoBehaviour
                         {
                             TileScript tileScanned = gridArray[rowsCreated, columnsCreated].GetComponent<TileScript>();
                             tileScanned.Extract();
+                            gameController.ShowMessage("Extracted");
                         }
                     }
+                   
                 }
 
             }
