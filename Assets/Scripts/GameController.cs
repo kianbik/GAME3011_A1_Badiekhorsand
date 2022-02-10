@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
-    public bool scanMode = false;
+    public static bool scanMode = false;
 
-    public int score = 0;
-    public int scanRemaining = 5;
-    public int extractremaining = 3;
+    public static int score = 0;
+    public static int scanRemaining = 5;
+    public static int extractremaining = 3;
 
     public Toggle scanModeToggle;
     public Toggle extractToggle;
@@ -39,5 +39,15 @@ public class GameController : MonoBehaviour
     {
         
         messageText.text = messageToDisplay;
+    }
+    public  void Scanned()
+    {
+        scanRemaining--;
+       // messageText.text = "Tile Scanned";
+    }
+    public  void Extracted()
+    {
+        extractremaining--;
+       //messageText.text = "Tile Extracted";
     }
 }

@@ -1254,6 +1254,7 @@ GameObject:
   - component: {fileID: 1700092608}
   - component: {fileID: 1700092607}
   - component: {fileID: 1700092609}
+  - component: {fileID: 1700092610}
   m_Layer: 0
   m_Name: GameBoardPannel
   m_TagString: Untagged
@@ -1339,10 +1340,26 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 15, y: 15}
-  m_Spacing: {x: 1, y: 1}
+  m_CellSize: {x: 30, y: 32}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1700092610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700092605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb6b1210c63a3147b1989af0941c6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 20
+  columns: 20
+  maxValue: 400
+  tilePrefab: {fileID: 5727286989061449862, guid: cc2604f0bc6b29a4e805ee94f2e74523, type: 3}
 --- !u!1 &1783866591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,16 +1478,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107c3a5dd3de372468e0b70af2f4a99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scanMode: 1
-  score: 0
-  scanRemaining: 5
-  extractremaining: 3
   scanModeToggle: {fileID: 655061036}
   extractToggle: {fileID: 2022567966}
   scoreText: {fileID: 161448372}
   scanRemainingText: {fileID: 394066194}
   extractRemainingText: {fileID: 1468995662}
-  messageText: {fileID: 1133311690}
+  messageText: {fileID: 0}
 --- !u!114 &1783866597
 MonoBehaviour:
   m_ObjectHideFlags: 0
